@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>نظام طلبات - Issam Barber Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <h1>نظام طلبات — Issam Barber Shop</h1>
+        <p class="sub">يبدأ العمل يومياً من <strong>08:00</strong> حتى <strong>00:00</strong></p>
+      </div>
+      <div class="contacts">
+        <div class="contact-item">
+          <span class="icon">📞</span>
+          <a href="tel:0666613937">0666613937</a>
+        </div>
+        <div class="contact-item">
+          <span class="icon">📍</span>
+          <span>المطمر سبدو، تلمسان</span>
+        </div>
+        <div class="contact-item">
+          <span class="icon">📸</span>
+          <a href="https://instagram.com/_issam__bkr" target="_blank" rel="noopener">_issam__bkr</a>
+        </div>
+        <div class="contact-item">
+          <span class="icon">🎵</span>
+          <a href="https://www.tiktok.com/@iSsaMcoiffure" target="_blank" rel="noopener">iSsaM coiffure</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel form-panel">
+      <h2>أضف طلب</h2>
+      <form id="orderForm" autocomplete="off">
+        <div class="row">
+          <label for="firstname">الإسم</label>
+          <input id="firstname" name="firstname" required placeholder="مثال: محمد" />
+        </div>
+        <div class="row">
+          <label for="lastname">اللقب</label>
+          <input id="lastname" name="lastname" required placeholder="مثال: بن علي" />
+        </div>
+        <div class="row">
+          <label for="phone">الهاتف (اختياري)</label>
+          <input id="phone" name="phone" inputmode="tel" placeholder="مثال: 0666613937" />
+        </div>
+        <div class="row">
+          <label for="service">نوع الخدمة</label>
+          <select id="service" name="service">
+            <option value="حلاقة عادية">حلاقة عادية</option>
+            <option value="حلاقة وتصفيف">حلاقة وتصفيف</option>
+            <option value="تقليم ذقن">تقليم ذقن</option>
+            <option value="صبغة">صبغة</option>
+            <option value="خدمة أخرى">خدمة أخرى</option>
+          </select>
+        </div>
+        <div class="row">
+          <label for="notes">ملاحظات (اختياري)</label>
+          <input id="notes" name="notes" placeholder="ملاحظات إضافية..." />
+        </div>
+        <div class="row actions">
+          <button type="submit" id="submitBtn">إرسال الطلب</button>
+          <button type="button" id="clearFormBtn" class="alt">مسح الحقول</button>
+        </div>
+      </form>
+
+      <div class="feedback" id="feedback" aria-live="polite"></div>
+    </section>
+
+    <section class="panel queue-panel">
+      <h2>قائمة الانتظار</h2>
+      <div class="stats" id="stats">
+        <div>إجمالي الطلبات: <strong id="total">0</strong></div>
+        <div>الطلبات اليوم: <strong id="todayCount">0</strong></div>
+      </div>
+
+      <ul id="queueList" class="queue-list" aria-live="polite"></ul>
+
+      <div class="controls">
+        <button id="exportJson">تصدير JSON</button>
+        <button id="exportCsv">تصدير CSV</button>
+        <button id="clearAll" class="danger">مسح الكل</button>
+      </div>
+
+      <details class="admin-details">
+        <summary>لوحة الإدارة (تفعيل)</summary>
+        <div class="admin">
+          <label for="adminPass">كلمة المرور الإدارية:</label>
+          <input id="adminPass" type="password" placeholder="ادخل كلمة السر" />
+          <button id="adminLogin">دخول</button>
+          <button id="adminLogout" style="display:none">خروج</button>
+          <p class="hint">افتراضي: <code>admin123</code> — غيّرها لاحقاً من الكود</p>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>إنشأ بواسطة وليد — Issam Barber Shop</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
